@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Hotel</string>
+    <string name="guest_button">Guest</string>
+    <string name="admin_button">Admin</string>
+    <string name="title_activity_admin_login">Log In</string>
+    <string name="admin_login_button">Log In</string>
+    <string name="guest_register_button">Register</string>
+    <string name="guest_login_button">Log In</string>
+    <string name="admin_email_login_hint">Enter registered emailID</string>
+    <string name="admin_password_login">Enter your Password</string>
+    <string name="guest_email_login_hint">Enter registered emailID</string>
+    <string name="guest_password_login">Enter your Password</string>
+    <string name="admin_email_textview">Email Id</string>
+    <string name="admin_password_textview">Password</string>
+    <string name="guest_name">Enter your Name</string>
+    <string name="guest_address">Enter your Home address</string>
+    <string name="guest_phone">Enter Phone No.</string>
+    <string name="guest_emailId">Enter your EmailID</string>
+    <string name="guest_password">Enter Password</string>
+    <string name="hotel_name">Enter Name</string>
+    <string name="hotel_address">Enter City</string>
+    <string name="contact_person">contact person\'s name</string>
+    <string name="Contact_no">Enter contact number</string>
+    <string name="star_rating">Star rating(out of 5)</string>
+    <string name="hotel_description">Hotel\'s Description</string>
+    <string name="hotel_id_box">Enter Hotel Id</string>
+    <string name="hotel_room_id_box">Enter Room Id</string>
+    <string name="no_of_rooms">No. of Rooms</string>
+    <string name="room_price_box">Enter Price</string>
+    <string name="room_description_box">Description</string>
+    <string name="room_facilities_box">Enter Facilities</string>
+    <string name="room_type_box">Tap on me to select Room Type</string>
+    <string name="h_r_id_box">Enter Hotel Id</string>
+    <string name="super_luxury_button">Super Luxury</string>
+    <string name="luxury_button">Luxury</string>
+    <string name="ordinary_button">Ordinary</string>
+</resources>
