@@ -6,11 +6,11 @@
     <string name="admin_login_button">Log In</string>
     <string name="guest_register_button">Register</string>
     <string name="guest_login_button">Log In</string>
-    <string name="admin_email_login_hint">Enter registered emailID</string>
+    <string name="admin_email_login_hint">Enter Username</string>
     <string name="admin_password_login">Enter your Password</string>
     <string name="guest_email_login_hint">Enter registered emailID</string>
     <string name="guest_password_login">Enter your Password</string>
-    <string name="admin_email_textview">Email Id</string>
+    <string name="admin_email_textview">UserName</string>
     <string name="admin_password_textview">Password</string>
     <string name="guest_name">Enter your Name</string>
     <string name="guest_address">Enter your Home address</string>
@@ -26,12 +26,14 @@
     <string name="hotel_id_box">Enter Hotel Id</string>
     <string name="hotel_room_id_box">Enter Room Id</string>
     <string name="no_of_rooms">No. of Rooms</string>
-    <string name="room_price_box">Enter Price</string>
-    <string name="room_description_box">Description</string>
+    <string name="room_price_box">Room\'s Price (SuperLuxury)</string>
+    <string name="room_description_box">SuperLuxury Room\'s Description</string>
     <string name="room_facilities_box">Enter Facilities</string>
-    <string name="room_type_box">Tap on me to select Room Type</string>
+    <string name="room_type_box">Click the below Button</string>
     <string name="h_r_id_box">Enter Hotel Id</string>
     <string name="super_luxury_button">Super Luxury</string>
     <string name="luxury_button">Luxury</string>
     <string name="ordinary_button">Ordinary</string>
+    <string name="title_activity_hotel_list">HotelListActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

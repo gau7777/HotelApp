@@ -39,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="33dp"
         android:text="@string/admin_password_textview"
+        android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/admin_password_login_editText"
         app:layout_constraintStart_toStartOf="@+id/admin_email_login_textView" />
 

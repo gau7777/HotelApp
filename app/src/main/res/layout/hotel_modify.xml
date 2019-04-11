@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HotelDetailsActivity">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hotel_id_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Hotel ID"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/hotel_name_box"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/hotel_id_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/hotel_id_box"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/hotel_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hotel_name_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Name"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/hotel_name_box"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/hotel_name_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/hotel_name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/hotel_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/hotel_city_rooms_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="City"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/hotel_city_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/hotel_address"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/hotel_contact_person_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Contact Person"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/hotel_contact_person_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/contact_person"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/room_description_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Contact Number"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/hotel_contact_number_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/Contact_no"
+                android:inputType="textPersonName"
+                 />
+
+            <TextView
+                android:id="@+id/room_facilities_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Star Rating"
+                android:textStyle="bold"
+                 />
+
+            <EditText
+                android:id="@+id/hotel_star_rating_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/star_rating"
+                android:inputType="textPersonName"
+                 />
+
+            <TextView
+                android:id="@+id/hotel_description_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Description"
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/hotel_description_box"
+                app:layout_constraintStart_toStartOf="@+id/room_facilities" />
+
+            <EditText
+                android:id="@+id/hotel_description_box_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:ems="10"
+                android:hint="@string/hotel_description"
+                android:inputType="textMultiLine" />
+            <TextView
+                android:id="@+id/hotel_room_type_1_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Room Type 1"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/room_type_1_EditText_View"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/hotel_room_type_2_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Room Type 2"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/room_type_2_EditText_View"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/hotel_room_type_3_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Room Type 3"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/room_type_3_EditText_View"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/room_image_View"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
+                android:text="Upload Hotel's Image"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/hotel_description"
+                app:layout_constraintTop_toBottomOf="@+id/hotel_description" />
+
+            <TextView
+                android:id="@+id/upload_hotel_image_click_View"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="0dp"
+                android:text="Click the below ImageView"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/hotel_description"
+                app:layout_constraintTop_toBottomOf="@+id/hotel_description" />
+
+            <ImageView
+                android:id="@+id/hotel_imageView_View"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/room_image"
+                app:layout_constraintTop_toBottomOf="@+id/hotel_description_box"
+                app:srcCompat="@drawable/ic_launcher_background"
+                tools:ignore="VectorDrawableCompat" />
+
+            <Button
+                android:id="@+id/hotel_details_save_button_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="SUBMIT"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hotel_imageView" />
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

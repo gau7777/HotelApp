@@ -2,73 +2,66 @@ package com.example.hotel;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.os.strictmode.SqliteObjectLeakedViolation;
+import android.util.Log;
+
+import java.sql.Blob;
 
 public class AppDatabase extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "Hotel_App_Data.db";
-    public static final String HOTEL_TABLE_NAME = "hotel_table";
-    public static final String ROOM_TABLE_NAME = "room_table";
-    public static final String GUEST_TABLE_NAME = "guest_table";
-    public static final String GUEST_LOGIN_TABLE_NAME = "guest_login_table";
-    public static final String ADMIN_LOGIN_TABLE_NAME = "admin_table";
+    private static final String TAG = "AppDatabase";
+    public static final String DATABASE_NAME = "HotelAppData03.db";
+    public static final int DATABAE_VERSION = 1;
 
-    // Columns of hotel table
-    public static final String HOTEL_ID = "Hotel_ID";
-    public static final String HOTEL_NAME = "Name";
-    public static final String HOTEL_LOCATION = "Location";
-    public static final String HOTEL_CONTACT_PERSON = "Contact_Person";
-    public static final String HOTEL_CONTACT_NUMBER = "Contact_No.";
-    public static final String HOTEL_STAR_RATING = "Star_Rating";
-    public static final String HOTEL_DESCRIPTION = "Description";
-    public static final String HOTEL_IMAGES = "Image";
 
-    //Columns of room table
-    public static final String ROOM_ID = "Room_ID";
-    public static final String ROOM_TYPE = "Room_Type";
-    public static final String HOTEL_ROOM_ID= "HotelRoomID";
-    public static final String NO_OF_ROOMS = "No_Of_Rooms";
-    public static final String ROOM_PRICE_ = "Price";
-    public static final String ROOM_DESCRIPTION = "Description";
-    public static final String ROOM_IMAGES = "Image";
-
-    //Columns of guest table
-    public static final String GUEST_NAME = "Name";
-    public static final String GUEST_LOCATION = "Address";
-    public static final String GUEST_PHONE = "Phone_No.";
-    public static final String GUEST_EMAIL = "Email_ID";
-    public static final String GUEST_PASSWORD = "Password";
-
-    public AppDatabase(Context context){
-        super(context, DATABASE_NAME, null, 1);
+    public AppDatabase(Context context) {
+        super(context, DATABASE_NAME, null, DATABAE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-         db.execSQL("CREATE TABLE " + HOTEL_TABLE_NAME + "(HOTEL_ID INTEGER PRIMARY KEY AUTOINCREMENT, HOTEL_NAME TEXT, HOTEL_LOCATION TEXT, HOTEL_CONTACT_PERSON TEXT, HOTEL_CONTACT_NUMBER INTEGER, HOTEL_STAR_RATING INTEGER, HOTEL_DESCRIPTION TEXT)");
-         db.execSQL("CREATE TABLE " + ROOM_TABLE_NAME + "(ROOM_ID INTEGER PRIMARY KEY AUTOINCREMENT, ROOM_TYPE TEXT, HOTEL_ROOM_ID INTEGER, NO_OF_ROOMS INTEGER, ROOM_PRICE INTEGER, ROOM_DESCRIPTION TEXT, FOREIGN KEY (HOTEL_ROOM_ID) REFERENCES HOTEL_TABLE_NAME(HOTEL_ID))");
-         db.execSQL("CREATE TABLE " + GUEST_TABLE_NAME + "(GUEST_NAME TEXT, GUEST_LOCATION TEXT, GUEST_PHONE INTEGER, GUEST_EMAIL TEXT)");
+
+            Log.d(TAG, "onCreate: starts");
+
+            String s1 = "CREATE TABLE " + HotelContract.HOTEL_TABLE_NAME + "(" + HotelContract.Columns.HOTEL_ID + " INTEGER PRIMARY KEY NOT NULL, " + HotelContract.Columns.HOTEL_NAME + " TEXT, " + HotelContract.Columns.HOTEL_LOCATION + " TEXT, " + HotelContract.Columns.HOTEL_CONTACT_PERSON + " TEXT, " + HotelContract.Columns.HOTEL_CONTACT_NUMBER + " INTEGER, " + HotelContract.Columns.HOTEL_STAR_RATING + " INTEGER, " + HotelContract.Columns.HOTEL_DESCRIPTION + " TEXT, " + HotelContract.Columns.HOTEL_ROOM_TYPE_1 + " TEXT, " + HotelContract.Columns.HOTEL_ROOM_TYPE_2 + " TEXT, " + HotelContract.Columns.HOTEL_ROOM_TYPE_3 + " TEXT, " + HotelContract.Columns.HOTEL_IMAGES + " byte(1000000))";
+            db.execSQL(s1);
+            String s2 = "CREATE TABLE " + RoomsContract.ROOM_TABLE_NAME + "(" + RoomsContract.Columns.ROOM_ID + " INTEGER PRIMARY KEY NOT NULL, " + RoomsContract.Columns.ROOM_TYPE1 + " TEXT, " + RoomsContract.Columns.ROOM_TYPE2 + " TEXT, " + RoomsContract.Columns.ROOM_TYPE3 + " TEXT, " + RoomsContract.Columns.HOTEL_ROOM_ID + " INTEGER, " + RoomsContract.Columns.O_NO_OF_ROOMS + " INTEGER, " + RoomsContract.Columns.ORDINARY_ROOM_PRICE + " INTEGER, " + RoomsContract.Columns.ORDINARY_ROOM_DESCRIPTION + " TEXT, " + RoomsContract.Columns.L_NO_OF_ROOMS + " INTEGER, " + RoomsContract.Columns.LUXURY_ROOM_PRICE + " INTEGER, " + RoomsContract.Columns.LUXURY_ROOM_DESCRIPTION + " TEXT, " + RoomsContract.Columns.S_NO_OF_ROOMS + " INTEGER, " + RoomsContract.Columns.SUPERLUXURY_ROOM_PRICE + " INTEGER, " + RoomsContract.Columns.SUPERLUXURY_ROOM_DESCRIPTION + " TEXT, " + RoomsContract.Columns.ROOM1_IMAGE + " byte(10000000), " + RoomsContract.Columns.ROOM2_IMAGE + " byte(10000000), " + RoomsContract.Columns.ROOM3_IMAGE + " byte(10000000), " + " FOREIGN KEY (" + RoomsContract.Columns.HOTEL_ROOM_ID + ") REFERENCES " + HotelContract.HOTEL_TABLE_NAME + "(" + HotelContract.Columns.HOTEL_ID + "))";
+            db.execSQL(s2);
+            String s3 = "CREATE TABLE " + GuestsContract.GUEST_TABLE_NAME + "(" + GuestsContract.Columns.GUEST_NAME + " TEXT, " + GuestsContract.Columns.GUEST_LOCATION + " TEXT, " + GuestsContract.Columns.GUEST_PHONE + " INTEGER, " + GuestsContract.Columns.GUEST_EMAIL + " TEXT, " + GuestsContract.Columns.GUEST_PASSWORD + " TEXT)";
+            db.execSQL(s3);
+            Log.d(TAG, "onCreate: ends");
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-           db.execSQL("DROP TABLE IF EXISTS " + HOTEL_TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + ROOM_TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + GUEST_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + HotelContract.HOTEL_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + RoomsContract.ROOM_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + GuestsContract.GUEST_TABLE_NAME);
 
         onCreate(db);
     }
 
-    public boolean insertDataHotel(String HotelName, String HotelLocation, String HotelContactPerson, int HotelContactNo, int StarRating, String HotelDescription){
+    public boolean insertDataHotel(String HotelId, String HotelName, String HotelLocation,  String HotelContactPerson, String HotelContactNo, String StarRating, String HotelDescription, String HotelRoomType1, String HotelRoomType2, String HotelRoomType3, byte[] hotelpicture){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(HOTEL_NAME, HotelName);
-        contentValues.put(HOTEL_LOCATION, HotelLocation);
-        contentValues.put(HOTEL_CONTACT_PERSON, HotelContactPerson);
-        contentValues.put(HOTEL_CONTACT_NUMBER, HotelContactNo);
-        contentValues.put(HOTEL_STAR_RATING, StarRating);
-        contentValues.put(HOTEL_DESCRIPTION, HotelDescription);
-        long result = db.insert(HOTEL_TABLE_NAME, null, contentValues);
+        contentValues.put(HotelContract.Columns.HOTEL_ID, HotelId);
+        contentValues.put(HotelContract.Columns.HOTEL_NAME, HotelName);
+        contentValues.put(HotelContract.Columns.HOTEL_LOCATION, HotelLocation);
+        contentValues.put(HotelContract.Columns.HOTEL_CONTACT_PERSON, HotelContactPerson);
+        contentValues.put(HotelContract.Columns.HOTEL_CONTACT_NUMBER, HotelContactNo);
+        contentValues.put(HotelContract.Columns.HOTEL_STAR_RATING, StarRating);
+        contentValues.put(HotelContract.Columns.HOTEL_DESCRIPTION, HotelDescription);
+        contentValues.put(HotelContract.Columns.HOTEL_ROOM_TYPE_1, HotelRoomType1);
+        contentValues.put(HotelContract.Columns.HOTEL_ROOM_TYPE_2, HotelRoomType2);
+        contentValues.put(HotelContract.Columns.HOTEL_ROOM_TYPE_3, HotelRoomType3);
+        contentValues.put(HotelContract.Columns.HOTEL_IMAGES, hotelpicture);
+        long result = db.insert(HotelContract.HOTEL_TABLE_NAME, null, contentValues);
         if(result == -1){
             return false;
         }else{
@@ -76,15 +69,27 @@ public class AppDatabase extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertDataRoom(String RoomType, String HotelRoomID, int NoOfRooms, int price, String RoomDescription){
+    public boolean insertDataRoom(String RoomId, String RoomType1, String RoomType2, String RoomType3, String HotelRoomID, String ONoOfRooms, String Oprice , String ORoomDescription , String LNoOfRooms, String LPrice, String LRoomDescription, String SNoOfRooms, String SPrice, String SRoomDescription, byte[] Room1, byte[] Room2, byte[] Room3){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ROOM_TYPE, RoomType);
-        contentValues.put(HOTEL_ROOM_ID, HotelRoomID);
-        contentValues.put(NO_OF_ROOMS, NoOfRooms);
-        contentValues.put(ROOM_PRICE_, price);
-        contentValues.put(ROOM_DESCRIPTION, RoomDescription);
-        long result = db.insert(ROOM_TABLE_NAME, null, contentValues);
+        contentValues.put(RoomsContract.Columns.ROOM_ID, RoomId);
+        contentValues.put(RoomsContract.Columns.ROOM_TYPE1, RoomType1);
+        contentValues.put(RoomsContract.Columns.ROOM_TYPE2, RoomType2);
+        contentValues.put(RoomsContract.Columns.ROOM_TYPE3, RoomType3);
+        contentValues.put(RoomsContract.Columns.HOTEL_ROOM_ID, HotelRoomID);
+        contentValues.put(RoomsContract.Columns.O_NO_OF_ROOMS, ONoOfRooms);
+        contentValues.put(RoomsContract.Columns.ORDINARY_ROOM_PRICE, Oprice);
+        contentValues.put(RoomsContract.Columns.ORDINARY_ROOM_DESCRIPTION, ORoomDescription);
+        contentValues.put(RoomsContract.Columns.L_NO_OF_ROOMS, LNoOfRooms);
+        contentValues.put(RoomsContract.Columns.LUXURY_ROOM_PRICE, LPrice);
+        contentValues.put(RoomsContract.Columns.LUXURY_ROOM_DESCRIPTION, LRoomDescription);
+        contentValues.put(RoomsContract.Columns.S_NO_OF_ROOMS, SNoOfRooms);
+        contentValues.put(RoomsContract.Columns.SUPERLUXURY_ROOM_PRICE, SPrice);
+        contentValues.put(RoomsContract.Columns.SUPERLUXURY_ROOM_DESCRIPTION, SRoomDescription);
+        contentValues.put(RoomsContract.Columns.ROOM1_IMAGE, Room1);
+        contentValues.put(RoomsContract.Columns.ROOM2_IMAGE, Room2);
+        contentValues.put(RoomsContract.Columns.ROOM3_IMAGE, Room3);
+        long result = db.insert(RoomsContract.ROOM_TABLE_NAME, null, contentValues);
         if(result == -1){
             return false;
         }else{
@@ -92,15 +97,15 @@ public class AppDatabase extends SQLiteOpenHelper {
         }
     }
 
-    public boolean insertDataGuest(String GuestName, int GuestLocation, int GuestPhone, String GuestEmail, String Password){
+    public boolean insertDataGuest(String GuestName, String GuestLocation, String GuestPhone, String GuestEmail, String Password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(GUEST_NAME, GuestName);
-        contentValues.put(GUEST_LOCATION, GuestLocation);
-        contentValues.put(GUEST_PHONE, GuestPhone);
-        contentValues.put(GUEST_EMAIL, GuestEmail);
-        contentValues.put(GUEST_PASSWORD, Password);
-        long result = db.insert(GUEST_TABLE_NAME, null, contentValues);
+        contentValues.put(GuestsContract.Columns.GUEST_NAME, GuestName);
+        contentValues.put(GuestsContract.Columns.GUEST_LOCATION, GuestLocation);
+        contentValues.put(GuestsContract.Columns.GUEST_PHONE, GuestPhone);
+        contentValues.put(GuestsContract.Columns.GUEST_EMAIL, GuestEmail);
+        contentValues.put(GuestsContract.Columns.GUEST_PASSWORD, Password);
+        long result = db.insert(GuestsContract.GUEST_TABLE_NAME, null, contentValues);
         if(result == -1){
             return false;
         }else{
@@ -108,41 +113,73 @@ public class AppDatabase extends SQLiteOpenHelper {
         }
     }
 
-    public boolean updateHotelData(String HotelId, String HotelName, String HotelLocation, String HotelContactPerson, int HotelContactNo, int StarRating, String HotelDescription){
+    public boolean updateHotelData(String HotelId, String HotelName, String HotelLocation, String HotelContactPerson, String HotelContactNo, String StarRating, String HotelDescription, String HotelRoomType1, String HotelRoomType2, String HotelRoomType3, byte[] hotelpicture){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(HOTEL_ID, HotelId);
-        contentValues.put(HOTEL_NAME, HotelName);
-        contentValues.put(HOTEL_LOCATION, HotelLocation);
-        contentValues.put(HOTEL_CONTACT_PERSON, HotelContactPerson);
-        contentValues.put(HOTEL_CONTACT_NUMBER, HotelContactNo);
-        contentValues.put(HOTEL_STAR_RATING, StarRating);
-        contentValues.put(HOTEL_DESCRIPTION, HotelDescription);
-        db.update(HOTEL_TABLE_NAME, contentValues, "HOTEL_ID = ?", new String[] { HotelId });
+        contentValues.put(HotelContract.Columns.HOTEL_ID, HotelId);
+        contentValues.put(HotelContract.Columns.HOTEL_NAME, HotelName);
+        contentValues.put(HotelContract.Columns.HOTEL_LOCATION, HotelLocation);
+        contentValues.put(HotelContract.Columns.HOTEL_CONTACT_PERSON, HotelContactPerson);
+        contentValues.put(HotelContract.Columns.HOTEL_CONTACT_NUMBER, HotelContactNo);
+        contentValues.put(HotelContract.Columns.HOTEL_STAR_RATING, StarRating);
+        contentValues.put(HotelContract.Columns.HOTEL_DESCRIPTION, HotelDescription);
+        contentValues.put(HotelContract.Columns.HOTEL_ROOM_TYPE_1, HotelRoomType1);
+        contentValues.put(HotelContract.Columns.HOTEL_ROOM_TYPE_2, HotelRoomType2);
+        contentValues.put(HotelContract.Columns.HOTEL_ROOM_TYPE_3, HotelRoomType3);
+        contentValues.put(HotelContract.Columns.HOTEL_IMAGES, hotelpicture);
+        db.update(HotelContract.HOTEL_TABLE_NAME, contentValues, HotelContract.Columns.HOTEL_ID + "= ?", new String[] { HotelId });
         return true;
     }
 
-    public boolean updateRoomData(String RoomId, String RoomType, String HotelRoomId, int NoOfRooms, int price, String RoomDescription){
+    public boolean updateRoomData(String RoomId, String RoomType1, String RoomType2, String RoomType3, String HotelRoomID, String ONoOfRooms, String Oprice, String ORoomDescription, String LNoOfRooms, String LPrice, String LRoomDescription, String SNoOfRooms, String SPrice, String SRoomDescription, byte[] Room1, byte[] Room2, byte[] Room3){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(ROOM_ID, RoomId);
-        contentValues.put(ROOM_TYPE, RoomType);
-        contentValues.put(HOTEL_ROOM_ID, HotelRoomId);
-        contentValues.put(NO_OF_ROOMS, NoOfRooms);
-        contentValues.put(ROOM_PRICE_, price);
-        contentValues.put(ROOM_DESCRIPTION, RoomDescription);
-        db.update(HOTEL_TABLE_NAME, contentValues, "HOTEL_ROOM_ID = ?", new String[] { HotelRoomId });
+        contentValues.put(RoomsContract.Columns.ROOM_ID, RoomId);
+        contentValues.put(RoomsContract.Columns.ROOM_TYPE1, RoomType1);
+        contentValues.put(RoomsContract.Columns.ROOM_TYPE2, RoomType2);
+        contentValues.put(RoomsContract.Columns.ROOM_TYPE3, RoomType3);
+        contentValues.put(RoomsContract.Columns.HOTEL_ROOM_ID, HotelRoomID);
+        contentValues.put(RoomsContract.Columns.O_NO_OF_ROOMS, ONoOfRooms);
+        contentValues.put(RoomsContract.Columns.ORDINARY_ROOM_PRICE, Oprice);
+        contentValues.put(RoomsContract.Columns.ORDINARY_ROOM_DESCRIPTION, ORoomDescription);
+        contentValues.put(RoomsContract.Columns.L_NO_OF_ROOMS, LNoOfRooms);
+        contentValues.put(RoomsContract.Columns.LUXURY_ROOM_PRICE, LPrice);
+        contentValues.put(RoomsContract.Columns.LUXURY_ROOM_DESCRIPTION, LRoomDescription);
+        contentValues.put(RoomsContract.Columns.S_NO_OF_ROOMS, SNoOfRooms);
+        contentValues.put(RoomsContract.Columns.SUPERLUXURY_ROOM_PRICE, SPrice);
+        contentValues.put(RoomsContract.Columns.SUPERLUXURY_ROOM_DESCRIPTION, SRoomDescription);
+        contentValues.put(RoomsContract.Columns.ROOM1_IMAGE, Room1);
+        contentValues.put(RoomsContract.Columns.ROOM2_IMAGE, Room2);
+        contentValues.put(RoomsContract.Columns.ROOM3_IMAGE, Room3);
+        db.update(RoomsContract.ROOM_TABLE_NAME, contentValues, RoomsContract.Columns.HOTEL_ROOM_ID + "= ?", new String[] { HotelRoomID });
         return true;
     }
 
     public int deleteHotelData(String HotelId){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(HOTEL_TABLE_NAME, "HOTEL_ID = ?", new String[] {HotelId});
+        return db.delete(HotelContract.HOTEL_TABLE_NAME, HotelContract.Columns.HOTEL_ID + "= ?", new String[] {HotelId});
     }
 
     public int deleteRoomData(String HotelRoomId){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(ROOM_TABLE_NAME, "HOTEL_ROOM_ID = ?", new String[] {HotelRoomId});
+        return db.delete(RoomsContract.ROOM_TABLE_NAME, RoomsContract.Columns.HOTEL_ROOM_ID + "= ?", new String[] {HotelRoomId});
+    }
+
+    public Cursor getGuestData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + GuestsContract.GUEST_TABLE_NAME, null);
+        return cursor;
+    }
+
+    public Cursor getHotelData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + HotelContract.HOTEL_TABLE_NAME, null);
+        return cursor;
+    }
+    public Cursor getRoomData(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + RoomsContract.ROOM_TABLE_NAME , null);
+        return cursor;
     }
 
 }

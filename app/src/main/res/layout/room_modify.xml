@@ -16,14 +16,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/room_Id"
+                android:id="@+id/room_Id_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Room Id"
                 android:layout_marginLeft="8dp"/>
 
             <EditText
-                android:id="@+id/room_id_box"
+                android:id="@+id/room_id_box_View"
                 android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -31,7 +31,7 @@
                 android:hint="Enter Room Id"/>
 
             <TextView
-                android:id="@+id/room_type1"
+                android:id="@+id/room_type1_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -43,7 +43,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/room_type_box"
+                android:id="@+id/room_type_box_View"
                 android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -59,13 +59,13 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/room_type1_button"
+                android:id="@+id/room_type1_button_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Click on me to Enter Room Type 1"/>
 
             <TextView
-                android:id="@+id/room_type2"
+                android:id="@+id/room_type2_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Room Type 2"
@@ -74,7 +74,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/room_type2_EditText"
+                android:id="@+id/room_type2_EditText_View"
                 android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -85,13 +85,13 @@
                 android:hint="Click the below button" />
 
             <Button
-                android:id="@+id/room_type2_button"
+                android:id="@+id/room_type2_button_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Click on me to enter room type 2"/>
 
             <TextView
-                android:id="@+id/room_type3"
+                android:id="@+id/room_type3_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Room Type 3"
@@ -100,7 +100,7 @@
                 android:layout_marginTop="8dp"/>
 
             <EditText
-                android:id="@+id/room_type3_EditText"
+                android:id="@+id/room_type3_EditText_View"
                 android:layout_width="368dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -111,13 +111,13 @@
                 android:hint="Click the below button"/>
 
             <Button
-                android:id="@+id/room_type3_button"
+                android:id="@+id/room_type3_button_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Click on me to enter room type 3"/>
 
             <TextView
-                android:id="@+id/hotel_room_id"
+                android:id="@+id/hotel_room_id_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -129,7 +129,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
-                android:id="@+id/hotel_room_id_box"
+                android:id="@+id/hotel_room_id_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -146,7 +146,7 @@
 
 
             <TextView
-                android:id="@+id/no_of_rooms_O"
+                android:id="@+id/no_of_rooms_O_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -157,7 +157,7 @@
                 app:layout_constraintStart_toStartOf="@+id/hotel_name" />
 
             <EditText
-                android:id="@+id/O_no_of_rooms_box"
+                android:id="@+id/O_no_of_rooms_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -173,7 +173,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/hotel_name_box" />
 
             <TextView
-                android:id="@+id/Price_O"
+                android:id="@+id/Price_O_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -182,7 +182,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/Price_O_Box"
+                android:id="@+id/Price_O_Box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -193,7 +193,7 @@
                 android:hint="Room's Price(Ordinary)"/>
 
             <TextView
-                android:id="@+id/Description_O"
+                android:id="@+id/Description_O_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -202,7 +202,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/Description_O_box"
+                android:id="@+id/Description_O_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -213,7 +213,7 @@
                 android:hint="Ordinary Room Description"/>
 
             <TextView
-                android:id="@+id/no_of_rooms_L"
+                android:id="@+id/no_of_rooms_L_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -224,7 +224,7 @@
                 app:layout_constraintStart_toStartOf="@+id/hotel_name" />
 
             <EditText
-                android:id="@+id/L_no_of_rooms_box"
+                android:id="@+id/L_no_of_rooms_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -240,7 +240,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/hotel_name_box" />
 
             <TextView
-                android:id="@+id/Price_L"
+                android:id="@+id/Price_L_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -249,7 +249,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/Price_L_Box"
+                android:id="@+id/Price_L_Box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -260,7 +260,7 @@
                 android:hint="Room's Price(Luxury)"/>
 
             <TextView
-                android:id="@+id/Description_L"
+                android:id="@+id/Description_L_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -269,7 +269,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/Description_L_box"
+                android:id="@+id/Description_L_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
@@ -281,7 +281,7 @@
 
 
             <TextView
-                android:id="@+id/no_of_rooms_S"
+                android:id="@+id/no_of_rooms_S_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -290,7 +290,7 @@
                 android:textStyle="bold"/>
 
             <EditText
-                android:id="@+id/S_no_of_Rooms_box"
+                android:id="@+id/S_no_of_Rooms_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -301,7 +301,7 @@
                 android:hint="No.Of Rooms"/>
 
             <TextView
-                android:id="@+id/Price_S"
+                android:id="@+id/Price_S_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -310,7 +310,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/Price_S_box"
+                android:id="@+id/Price_S_box_View"
                 android:layout_width="296dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -325,7 +325,7 @@
                 app:layout_constraintStart_toEndOf="@+id/room_description" />
 
             <TextView
-                android:id="@+id/Description_S"
+                android:id="@+id/Description_S_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
@@ -334,7 +334,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/Description_S_box"
+                android:id="@+id/Description_S_box_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -349,7 +349,7 @@
 
 
             <TextView
-                android:id="@+id/room_image"
+                android:id="@+id/room_image_View_View"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:layout_marginLeft="8dp"
@@ -360,7 +360,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/hotel_description" />
 
             <TextView
-                android:id="@+id/upload_room_image_click"
+                android:id="@+id/upload_room_image_click_View"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:layout_marginLeft="8dp"
@@ -371,7 +371,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/hotel_description" />
 
             <TextView
-                android:id="@+id/for_Room1_image"
+                android:id="@+id/for_Room1_image_View"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:text="Super Luxury Room Image"
@@ -379,7 +379,7 @@
                 android:layout_marginLeft="8dp"/>
 
             <ImageView
-                android:id="@+id/Room1_imageView"
+                android:id="@+id/Room1_imageView_View"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="8dp"
@@ -394,7 +394,7 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView
-                android:id="@+id/for_Room2_image"
+                android:id="@+id/for_Room2_image_View"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:text="Luxury Room Image"
@@ -403,7 +403,7 @@
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/Room2_imageView"
+                android:id="@+id/Room2_imageView_View"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="0dp"
@@ -412,7 +412,7 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <TextView
-                android:id="@+id/for_Room3_image"
+                android:id="@+id/for_Room3_image_View"
                 android:layout_width="wrap_content"
                 android:layout_height="31dp"
                 android:text="Ordinary Room Image "
@@ -421,7 +421,7 @@
                 android:textStyle="bold"/>
 
             <ImageView
-                android:id="@+id/Room3_imageView"
+                android:id="@+id/Room3_imageView_View"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="0dp"
@@ -429,10 +429,8 @@
                 app:srcCompat="@drawable/ic_launcher_background"
                 tools:ignore="VectorDrawableCompat" />
 
-
-
             <Button
-                android:id="@+id/room_details_save_button"
+                android:id="@+id/room_details_save_button_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"

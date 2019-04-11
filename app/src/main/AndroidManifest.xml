@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,18 +15,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RoomsDetailsActivity"
-               android:parentActivityName=".AdminMenuActivity">
-
-        </activity>
-        <activity android:name=".HotelDetailsActivity"
-                      android:parentActivityName=".AdminMenuActivity">
-
-        </activity>
-        <activity android:name=".AdminMenuActivity"
-                    android:parentActivityName=".AdminLoginActivity">
-
-        </activity>
+        <activity android:name=".RoomAdminView"></activity>
+        <activity android:name=".AdminRoomListActivity"></activity>
+        <activity android:name=".AdminHotelListActivity" />
+        <activity android:name=".HotelAdminViewActivity" />
+        <activity android:name=".HotelRoomDetailActivity" />
+        <activity android:name=".HotelListDetailsActivity" />
+        <activity
+            android:name=".HotelListActivity"
+            android:parentActivityName=".GuestLoginActivity" />
+        <activity
+            android:name=".RoomsDetailsActivity"
+            android:parentActivityName=".AdminMenuActivity" />
+        <activity
+            android:name=".HotelDetailsActivity"
+            android:parentActivityName=".AdminMenuActivity" />
+        <activity
+            android:name=".AdminMenuActivity"
+            android:parentActivityName=".AdminLoginActivity" />
         <activity
             android:name=".GuestRegisterFormActivity"
             android:parentActivityName=".GuestRegisterLoginActivity" />
